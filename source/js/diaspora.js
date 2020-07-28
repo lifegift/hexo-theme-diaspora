@@ -318,7 +318,7 @@ $(function() {
             e.preventDefault()
         }
     })
-
+	
 	//搜搜
 	var searchFunc = function(path, search_id, content_id) {
 		'use strict'; //使用严格模式
@@ -338,7 +338,7 @@ $(function() {
 				var $input = document.getElementById(search_id);
 				var $resultContent = document.getElementById(content_id);
 				$input.addEventListener('input', function(){
-					var str='<ul class=\"search-result-list\">';
+					var str='<ul class=\"search-result-list\">';                
 					var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
 					$resultContent.innerHTML = "";
 					if (this.value.trim().length <= 0) {
@@ -389,7 +389,7 @@ $(function() {
 								if(end > content.length){
 									end = content.length;
 								}
-								var match_content = content.substr(start, end);
+								var match_content = content.substr(start, end); 
 								// 列出搜索关键字，定义class加高亮
 								keywords.forEach(function(keyword){
 									var regS = new RegExp(keyword, "gi");
@@ -408,8 +408,8 @@ $(function() {
 	if(document.getElementById('local-search-input') !== null){
 		searchFunc(path, 'local-search-input', 'local-search-result');
 	}
-
-
+	
+	
     var typed = null;
     $('body').on('click', function(e) {
         var tag = $(e.target).attr('class') || '',
@@ -448,10 +448,10 @@ $(function() {
 						typed = new Typed(".hitokoto .typed", options);
 						})
 					}
-				}
+				}	
                 return false;
                 break;
-			//search
+			//search	
 			case (tag.indexOf('switchsearch') != -1):
                 $('body').removeClass('mu')
 				if(typed !== null){typed.destroy(); typed = null;}
@@ -461,7 +461,7 @@ $(function() {
 					searchFunc(path, 'local-search-input', 'local-search-result');
                 }, 300)
                 return false;
-                break;
+                break;	
             // next page
             case (tag.indexOf('more') != -1):
                 tag = $('.more');
@@ -603,7 +603,7 @@ $(function() {
                             // See Options -> getThumbBoundsFn section of documentation for more info
                             var thumbnail = imgs[index],
                                 pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                                rect = thumbnail.getBoundingClientRect();
+                                rect = thumbnail.getBoundingClientRect(); 
 
                             return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
                         }
@@ -614,7 +614,7 @@ $(function() {
                 return false;
                 break;
             // comment
-            case - 1 != tag.indexOf("comment"):
+            case - 1 != tag.indexOf("comment"): 
 				if($('#gitalk-container').data('enable') == true){
 					Diaspora.loading(),
 					comment = $('#gitalk-container');
@@ -645,6 +645,7 @@ $(function() {
     if (comment.data('ae') == true){
         comment.click();
     }
-
+		
+    console.log("%c Github %c","background:#24272A; color:#ffffff","","https://github.com/lifegift/hexo-theme-diaspora-mod")
 })
 

@@ -1,9 +1,9 @@
-# Hexo-theme-diaspora
+# Hexo-theme-diaspora-mod
 
 
-**[在线预览 | PREVIEW ](http://fech.in)**
+**[在线预览 | PREVIEW ](http://keep0.cn/)**
 
-一款基于WP移植的Hexo主题，适合喜欢摄影，影评，乐评和玩弄文字的你，干净，清新； 响应式，Ajax，更多好玩的等你来发现。 
+一款基于WP移植的Hexo主题，原主题：https://github.com/Fechin/hexo-theme-diaspora 
 
 > 再次感谢原作者创作出这么精美的主题 [@Loeify](https://github.com/LoeiFy/Diaspora) 。如果你喜欢，请捐助原作者。
 
@@ -13,7 +13,7 @@
 ### 安装主题
 
 ``` bash
-$ git clone https://github.com/Fechin/hexo-theme-diaspora.git themes/diaspora
+$ git clone https://github.com/lifegift/hexo-theme-diaspora-mod.git themes/diaspora
 ```
 
 
@@ -146,15 +146,20 @@ mp3:
     - http://link.hhtjim.com/163/425570952.mp3
 
 # 首页封面图, 为空时取文章的cover作为封面(注意跨域问题,建议使用同源图片)
-welcome_cover: /img/welcome-cover.jpg
-
-
-# 默认文章封面图（随机调用,支持外链）
+#welcome_cover: /img/index.jpg
+welcome_cover: /coveri/
+#首页封面图随机产生的总数 起始为101.jpg 增加照片时更改该数值 照片必须是数字.jpg格式，数字不可中断 尽量截取1920*1080的图片
+welcome_cover_count: 3
+# 默认文章封面图（随机调用,支持外链）680*440大小
 cover: 
   - /img/cover.jpg
   - /img/welcome-cover.jpg
 
  
+# 是否使用mathjax
+mathjax: false
+
+
 # 是否关闭默认滚动条
 scrollbar: true
 
@@ -179,14 +184,17 @@ beian:
     # 是否显示备案信息
     enable: true
     # 是否在主页面最底下显示备案信息(虽然丑，但是完全满足规定要求)
-    enableFooter: false
+    enableFooter: true
     # 备案号
     beianInfo: 冀ICP备xxxxxxx号
     # 链接地址
     link: http://www.beian.miit.gov.cn
-
-# 是否使用mathjax
-mathjax: false
+    #公安备案信息
+    gaicon: /img/gongan.png
+    #公安网址
+    galink: http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=*****
+    #公安备案号
+    gabeianInfo: *公网安备 ******号
 
 # Gitalk 评论插件（https://github.com/gitalk/gitalk）
 gitalk:
@@ -210,10 +218,10 @@ gitalk:
     distractionFreeMode: false
 
 # 网站关键字
-keywords: Fechin
+keywords: keep0
 
-# 要使用google_analytics进行统计的话，这里需要配置ID
-google_analytics: 
+# 使用google_analytics进行统计的话，需要配置ID
+google_analytics: tryry
 
 # 网站ico
 favicon: /img/favicon.png
