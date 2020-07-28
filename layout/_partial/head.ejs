@@ -33,16 +33,17 @@ var description = '';
     <% if (config.author){ %><meta name="author" content="<%= config.author %>"> <% } %>
     <% if (theme.rss){ %><link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml"> <% } %>
     <% if (theme.favicon){ %><link rel="icon" href="<%- url_for(theme.favicon) %>"> <% } %>
-    <% if (theme.gitalk.enable){ %><%- css(['//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css'])%><%}%>
+    <% if (theme.gitalk.enable){ %><%- css(['https://unpkg.com/gitalk/dist/gitalk.css'])%><%}%>
     <%- css(['css/diaspora.css'])%>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%=theme.google_analytics %>"></script>
     <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '<%=theme.google_analytics %>');
     </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
+
 </head>

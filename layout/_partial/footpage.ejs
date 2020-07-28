@@ -1,0 +1,33 @@
+<div id="footerup">
+    <center><img src="/img/footer.png" id="footimg"></center>
+</div>
+<!--底部的背景颜色-->
+<div id="footerstye">
+    <!--底部的备案信息-->
+    <div onselectstart="return false" style="text-align:center;">
+        <% if (theme.beian.enable && theme.beian.enableFooter){ %>
+
+        <a rel="nofollow" style="color: #666;" href="<%= theme.beian.link %>"
+           target="_blank"><%= theme.beian.beianInfo+'   ' %></a>
+        <div style="display: inline">
+            <img src="<%= theme.beian.gaicon %>" style="display: inline-block">
+            <span style="color: #666;"><%= theme.beian.gabeianInfo %></span>
+
+        </div>
+
+        <% } %>
+
+    </div>
+    <!--友站连接-->
+    <!--文章增加站长统计-->
+    <div style="display: none">
+        <!--站长统计-->
+        <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279106987&web_id=1279106987"></script>
+    </div>
+    <!--返回顶部-->
+    <div  id="dingbu">
+    <a href="javascript:scroll(0,0)"><img src="/img/dingbu.png"></a>
+    </div>
+
+
+</div>

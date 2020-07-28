@@ -206,6 +206,14 @@ $(function() {
         cover.t = $('#cover');
         cover.w = cover.t.attr('width');
         cover.h = cover.t.attr('height');
+        //更换图片
+        //获得最大值
+        debugger;
+        var urlp=cover.t.attr('src');
+        var count=urlp.substring(27).replace(".png","");
+        count=(parseInt(Math.random()*(count*1-101)+101,10))*1;
+        cover.t.attr('src',urlp.substring(0,27)+count+'.jpg');
+
         ;(cover.o = function() {
             $('#mark').height(window.innerHeight)
         })();
@@ -256,6 +264,7 @@ $(function() {
         if (!cover.t.attr('src')) {
             alert('Please set the post thumbnail')
         }
+
         $('#preview').css('min-height', window.innerHeight)
         Diaspora.PS()
         $('.pview a').addClass('pviewa')
@@ -265,7 +274,12 @@ $(function() {
             T = setTimeout(function() {
                 if (!Diaspora.P() && location.href == Home) {
                     cover.o()
-                    cover.f()
+                    try {
+                    			cover.f()
+                    } catch (e) {
+                    	// handle errors here
+                    }
+                    
                 }
                 if ($('#loader').attr('class')) {
                     Diaspora.loading()
@@ -304,7 +318,7 @@ $(function() {
             e.preventDefault()
         }
     })
-	
+
 	//搜搜
 	var searchFunc = function(path, search_id, content_id) {
 		'use strict'; //使用严格模式
@@ -324,7 +338,7 @@ $(function() {
 				var $input = document.getElementById(search_id);
 				var $resultContent = document.getElementById(content_id);
 				$input.addEventListener('input', function(){
-					var str='<ul class=\"search-result-list\">';                
+					var str='<ul class=\"search-result-list\">';
 					var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
 					$resultContent.innerHTML = "";
 					if (this.value.trim().length <= 0) {
@@ -375,7 +389,7 @@ $(function() {
 								if(end > content.length){
 									end = content.length;
 								}
-								var match_content = content.substr(start, end); 
+								var match_content = content.substr(start, end);
 								// 列出搜索关键字，定义class加高亮
 								keywords.forEach(function(keyword){
 									var regS = new RegExp(keyword, "gi");
@@ -394,8 +408,8 @@ $(function() {
 	if(document.getElementById('local-search-input') !== null){
 		searchFunc(path, 'local-search-input', 'local-search-result');
 	}
-	
-	
+
+
     var typed = null;
     $('body').on('click', function(e) {
         var tag = $(e.target).attr('class') || '',
@@ -409,21 +423,21 @@ $(function() {
             // nav menu
             case (tag.indexOf('switchmenu') != -1):
                 window.scrollTo(0, 0)
-				
+
 				$('html, body').toggleClass('mu');
 				if(typed !== null)
 					{typed.destroy(); typed = null;}
 				else{
 					if($("#hitokoto").data('st') == true){
-						$.get("https://v1.hitokoto.cn/", function (data) {
+						$.get("https://v1.hitokoto.cn/?c=a&min_length=0&max_length=100", function (data) {
 						var data = data;
-						var str =  data.hitokoto + " ——  By "		
+						var str =  data.hitokoto + " ——  From "
 						var options = {
-						  strings: [ 
+						  strings: [
 							//str + "Who??^1000",
 							//str + "It's me^2000",
 							//str +'Haha, make a joke',
-							str + data.from,
+							str + "《"+data.from+"》",
 						  ],
 						  typeSpeed: 90,
 						  startDelay: 500,
@@ -434,10 +448,10 @@ $(function() {
 						typed = new Typed(".hitokoto .typed", options);
 						})
 					}
-				}	
+				}
                 return false;
                 break;
-			//search	
+			//search
 			case (tag.indexOf('switchsearch') != -1):
                 $('body').removeClass('mu')
 				if(typed !== null){typed.destroy(); typed = null;}
@@ -447,7 +461,7 @@ $(function() {
 					searchFunc(path, 'local-search-input', 'local-search-result');
                 }, 300)
                 return false;
-                break;	
+                break;
             // next page
             case (tag.indexOf('more') != -1):
                 tag = $('.more');
@@ -589,7 +603,7 @@ $(function() {
                             // See Options -> getThumbBoundsFn section of documentation for more info
                             var thumbnail = imgs[index],
                                 pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                                rect = thumbnail.getBoundingClientRect(); 
+                                rect = thumbnail.getBoundingClientRect();
 
                             return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
                         }
@@ -600,7 +614,7 @@ $(function() {
                 return false;
                 break;
             // comment
-            case - 1 != tag.indexOf("comment"): 
+            case - 1 != tag.indexOf("comment"):
 				if($('#gitalk-container').data('enable') == true){
 					Diaspora.loading(),
 					comment = $('#gitalk-container');
@@ -631,7 +645,6 @@ $(function() {
     if (comment.data('ae') == true){
         comment.click();
     }
-		
-    console.log("%c Github %c","background:#24272A; color:#ffffff","","https://github.com/Fechin/hexo-theme-diaspora")
+
 })
 

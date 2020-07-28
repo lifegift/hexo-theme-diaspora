@@ -23,6 +23,7 @@ audio {display:none;visibility:hidden;opacity:0;width:0;height:0;}
 #mark {width:100%;height:560px;overflow:hidden;}
 .layer {position:relative;}
 #cover {position:absolute;max-width:none;}
+
 #header {position:absolute;top:70px;width:100%;}
 #header > div {margin:0 60px;position:relative;}
 .icon-menu {font-size:20px;padding:6px 6px 5px;border-radius:2px;cursor:pointer;position:absolute;z-index:4;right:0;top:0;margin-top:-3px;background:rgba(255,255,255,.9);}
@@ -31,7 +32,11 @@ audio {display:none;visibility:hidden;opacity:0;width:0;height:0;}
 body.mu .image-logo {background-color:black;}
 #vibrant {position:absolute;top:0;left:0;width:100%;height:100%;}
 #vibrant div {position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;background-color:#000;}
-#post0 {width:28%;position:absolute;top:42%;left:10%;}
+#post0 {width:28%;position:absolute;top:30%;left:5%;}
+#post0cover{width:35%;position:absolute;top:50%;left:5%;}
+#post0cover{box-shadow:13px 13px 13px #000 ;}
+
+/*#post0cover{-webkit-filter: blur(2px);filter: blur(2px);}*/
 #post0 p:first-child {color:#fff;font-size:12px;}
 #post0 h2 {font-size:28px;margin-top:15px;}
 #post0 h2 a {color:#fff;}
@@ -289,6 +294,7 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
   #vibrant svg {display:none;}
   #vibrant div {opacity:0.3;}
   #container {padding-bottom:50px;}
+  #post0cover{visibility: hidden;}
   #post0 {bottom:60px;top:auto;width:70%;left:5%;}
   .menu {width:90%;margin:160px auto 0;}
   .menu li {font-size:16px;}
@@ -306,6 +312,7 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
 }
 @media screen and (max-width:480px) {
   #post0 p:first-child {display:block;}
+  #post0cover{visibility: hidden;}
   #container:before {display:none;}
   #post0 h2 {text-align:left;margin:0 10px 0 0;}
   #post0 h2 + p {text-align:left;margin:10px 20px 0 0;color:#f2f2f2;font-size:14px;}
@@ -320,3 +327,12 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
   .article .side {display:none}
   .comment .gt-btn-public .gt-btn-text:after{content:"";}
 }
+#footerstye{ background-color: #3e3e3e;width: auto;height: 74px}
+#footerup{width: auto ;margin-bottom: -74px; margin-top: -30px;}
+@media screen and (max-width:1000px) {
+  #footerstye{visibility: hidden;}
+  #footerup{width: auto ;margin-bottom: -74px; margin-top: -30px;}
+}
+#dingbu{width:3%; position:fixed; right: 2%; bottom:8%;}
+#dingbu a img{opacity: 0.1;}
+#dingbu:hover a img{opacity: 0.8;}
